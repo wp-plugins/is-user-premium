@@ -1,5 +1,5 @@
 === Is user premium ===
-Contributors: Vesuvium
+Contributors: Vesuvium, Ariacorporate
 Tags: PayPal, subscription, custom user meta
 Requires at least: 4.0
 Tested up to: 4.0
