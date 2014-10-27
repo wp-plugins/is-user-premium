@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Is user premium?
+ * Plugin Name: Is user premium
  * Description: This simple plugin implements PayPal subscriptions in Wordpress, recording them as custom user meta. A shortcode can be used to display the subscription status to the users. 
  * Version: 0.1
  * Author: Aria s.r.l.
@@ -19,10 +19,6 @@ function iup_filling_generator($array = array(), $arg){
 
 function iup_button_select( $btn_string){
 	// Returns a PayPal button, based on type and language.
-	//en_US/i/btn/btn_cart_LG.gif
-	$url = 'https://www.paypalobjects.com/';
-	$subscribe = 'btn/btn_subscribeCC_LG.gif';
-	//
 	$subscribe = array(
 		'it' => 'it_IT/IT/i/',
 		'fr' => 'fr_FR/FR/i/',

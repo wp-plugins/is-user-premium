@@ -3,7 +3,7 @@ Contributors: Vesuvium, Ariacorporate
 Tags: PayPal, subscription, custom user meta
 Requires at least: 4.0
 Tested up to: 4.0
-Stable tag: 0.1
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,7 @@ Is user premium is a small plugin that implements PayPal subscribtions managemen
 == Description ==
 
 Is user premium adds:
+
 * A user custom meta that keeps track of the subscription expiration
 * A shortcode that displays the plugin output
 * A settings/documentation page
@@ -20,6 +21,7 @@ All the configuration is done through the shortcode parameters.
 
 
 The shortcode will display either:
+
 * A 'please login' message to anonimous users
 * A subscribe button to registered users
 * A subscribed message for subscribed users
@@ -54,5 +56,12 @@ one item, so in case of a double subscription to different services, you will ge
 
 == Changelog ==
 
+= 0.1.1 =
+
+* Fixed broken paypal image
+* Added screenshots
+* Improved readme.txt
+
 = 0.1 =
+
 * Initial version

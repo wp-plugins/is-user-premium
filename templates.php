@@ -25,7 +25,7 @@ function iup_templates_subscribe_form( $filling ){
 				<input type="hidden" value="'.$business.'" name="business">
 				<input type="hidden" value="'.$url.'/iup_ipn/paypal" name="notify_url">
 				<input type="hidden" value="'.$filling['user_id'].'&'.$filling['duration'].'" name="custom">
-				<input type="image" src="'.$button.'"
+				<input type="image" src="https://www.paypalobjects.com/'.$button.'btn/btn_subscribeCC_LG.gif"
 				alt="Make payments with payPal - it\'s fast, free and secure!">
 		</form>
 	';
@@ -44,7 +44,7 @@ function iup_templates_settings_page ( $filling ){
 	$html = '
 		<div class="wrap">
 			<h2>IUP settings page</h2>
-			<p>Welcome to the Is user premium? settings page. IUP is a rather simple plugin, that adds a shortcode
+			<p>Welcome to the "Is user premium" settings page. IUP is a rather simple plugin, that adds a shortcode
 			that displays a PayPal button and a system to register when a user subscription expires. </p>
 			<p> All the configuration is done through the shortcode parameters. </p>
 			<h3>Shortcodes</h3>
