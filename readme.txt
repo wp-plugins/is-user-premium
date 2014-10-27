@@ -54,6 +54,13 @@ Yes, it is. You can add more buttons, but the plugin only register the expiratio
 one item, so in case of a double subscription to different services, you will get problems.
 
 
+== Screenshots == 
+
+1. Settings page (first part)
+2. Settings page (second part)
+3. The button displayed to a logged-in user 
+
+
 == Changelog ==
 
 = 0.1.1 =
