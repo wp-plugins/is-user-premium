@@ -30,7 +30,7 @@ Depending on the user. The outputted messages are customizable.
 
 For the PayPal button:
 Some currencies (usd, eur, jpy, cad, aud) are supported.
-Some languages are supported (en, it, fr, de).
+Various languages are supported and most buttons are supported.
 
 Note that the shortcode will require some parameters, such as the merchant email, in order
 to work properly (see the plugin settings page).
