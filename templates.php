@@ -25,7 +25,7 @@ function iup_templates_subscribe_form( $filling ){
 				<input type="hidden" value="'.$business.'" name="business">
 				<input type="hidden" value="'.$url.'/iup_ipn/paypal" name="notify_url">
 				<input type="hidden" value="'.$filling['user_id'].'&'.$filling['duration'].'" name="custom">
-				<input type="image" src="https://www.paypalobjects.com/'.$button.'btn/btn_subscribeCC_LG.gif"
+				<input type="image" src="https://www.paypalobjects.com/'.$button.'"
 				alt="Make payments with payPal - it\'s fast, free and secure!">
 		</form>
 	';
@@ -82,7 +82,9 @@ function iup_templates_settings_page ( $filling ){
 				<tr><td>value</td><td>The item price</td><td></td></tr>
 				<tr><td>name</td><td>The item name (will be displayed to the user)</td><td></td></tr>
 				<tr><td>duration</td><td>The subscription duration in seconds.</td><td></td></tr>
-				<tr><td>button</td><td>The paypal button image es: button="subscribe-en"(supports en, it, de, fr)</td><td></td></tr>
+				<tr><td>button</td><td>The paypal button image es: button="subscribe-en"; <br>
+				languages supported: en, it, de, fr, es, nl, pl <br>
+				buttons supported: subscribe, donate, buynow, cart, gift</td><td></td></tr>
 				<tr><td>currency</td><td>Currency, supports: "eur", "yen", "usd", "cad", "aud"</td><td></td></tr>
 				<tr><td>login-msg</td><td>The message displayed to anons</td><td></td></tr>
 				<tr><td>subscribed-msg</td><td>The message displayed to subscribed users</td><td>%until%</td></tr>

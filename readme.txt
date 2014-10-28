@@ -3,7 +3,7 @@ Contributors: Vesuvium, Ariacorporate
 Tags: PayPal, subscription, custom user meta
 Requires at least: 4.0
 Tested up to: 4.0
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,14 @@ one item, so in case of a double subscription to different services, you will ge
 
 
 == Changelog ==
+
+= 0.3 =
+
+* Added support for more languages and buttons type, for the paypal button
+
+= 0.2 =
+
+* Renamed 0.1.1 to 0.2
 
 = 0.1.1 =
 

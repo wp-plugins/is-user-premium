@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Is user premium
  * Description: This simple plugin implements PayPal subscriptions in Wordpress, recording them as custom user meta. A shortcode can be used to display the subscription status to the users. 
- * Version: 0.2
+ * Version: 0.3
  * Author: Aria s.r.l.
  * Author URI: https://github.com/Ariacorporate
  * License: GPL2
@@ -17,21 +17,29 @@ function iup_filling_generator($array = array(), $arg){
 	}
 }
 
-function iup_button_select( $btn_string){
+function iup_button_select( $btn_string ){
 	// Returns a PayPal button, based on type and language.
-	$subscribe = array(
+	// https://www.paypalobjects.com/$langs[$lang]/btn/$buttons[$btn_type]
+	$langs = array(
 		'it' => 'it_IT/IT/i/',
 		'fr' => 'fr_FR/FR/i/',
 		'de' => 'de_DE/DE/i',
+		'es' => 'es_ES/ES/i',
+		'nl' => 'nl_NL/NL/i',
+		'pl' => 'pl_PL/PL/i',
 		'en' => 'en_US/i/'
 	);
 	$buttons = array(
-		'subscribe' => $subscribe
+		'subscribe' => 'btn_subscribeCC_LG.gif',
+		'donate' => 'btn_donateCC_LG.gif',
+		'buynow' => 'btn_buynowCC_LG.gif',
+		'cart' => 'btn_cart_LG.gif',
+		'gift' => 'btn_giftCC_LG.gif'
 	);
 	$options = split( '-', $btn_string );
 	$btn_type = $options[0];
 	$lang = $options[1];
-	return $buttons[ $btn_type ][ $lang ];
+	return $langs[ $lang ].'/btn/'.$buttons[ $btn_type ];
 }
 
 function iup_currency ( $var ){
