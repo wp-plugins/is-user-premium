@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Is user premium
  * Description: This simple plugin implements PayPal subscriptions in Wordpress, recording them as custom user meta. A shortcode can be used to display the subscription status to the users. 
- * Version: 0.1
+ * Version: 0.2
  * Author: Aria s.r.l.
  * Author URI: https://github.com/Ariacorporate
  * License: GPL2
