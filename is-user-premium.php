@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Is user premium
  * Description: This simple plugin implements PayPal subscriptions in Wordpress, recording them as custom user meta. A shortcode can be used to display the subscription status to the users. 
- * Version: 0.3
+ * Version: 0.3.1
  * Author: Aria s.r.l.
  * Author URI: https://github.com/Ariacorporate
  * License: GPL2
@@ -126,9 +126,9 @@ function iup_display_upgrade_shortcode( $args ){
 			'duration' => 31556926,
 			'button' => 'subscribe-en',
 			'currency' => 'eur',
-			'login-msg' => '<p>You must be registered!</p>',
-			'subscribed-msg' => '<p>You are subscribed until %until%</p>',
-			'was-subscribed-msg' => '<p class="was-subscribed">You were subscribed until %until%</p>'
+			'login_msg' => '<p>You must be registered!</p>',
+			'subscribed_msg' => '<p>You are subscribed until %until%</p>',
+			'was_subscribed_msg' => '<p class="was-subscribed">You were subscribed until %until%</p>'
 			), $args
 	);
 	if ( is_user_logged_in() ){
@@ -149,24 +149,27 @@ function iup_display_upgrade_shortcode( $args ){
 			if ( $meta != 0 ){
 				// The user was subscribed.
 				$d = date_i18n( get_option('date_format'), $meta );
-				$string = str_replace( "%until%", $d, $a['was-subscribed-msg'] );
-				$html = iup_templates_info_container( $string.$filling, 'iup-subscribe' );
+				$string = str_replace( "%until%", $d, $a['was_subscribed_msg'] );
+				$string = html_entity_decode( $string );
+				$html = iup_templates_info_container( $string.$filling, 'iup_subscribe' );
 			}
 			else {
 				// The user was never subscribed.
-				$html = iup_templates_info_container( $filling, 'iup-subscribe' );
+				$html = iup_templates_info_container( $filling, 'iup_subscribe' );
 			}
 		}
 		else {
 			// The user is subscribed.
 			$d = date_i18n( get_option( 'date_format' ), $meta );
-			$string = str_replace( "%until%", $d, $a['subscribed-msg'] );
-			$html = iup_templates_info_container( $string, 'iup-subscribed' );
+			$string = str_replace( "%until%", $d, $a['subscribed_msg'] );
+			$string = html_entity_decode( $string );
+			$html = iup_templates_info_container( $string, 'iup_subscribed' );
 		}
 	}
 	else {
 		// The user is not logged in.
-		$html = iup_templates_info_container( $a['login-msg'], 'iup-login' );
+		$string = html_entity_decode( $a['login_msg'] );
+		$html = iup_templates_info_container( $string, 'iup-login' );
 	}
 	return $html;
 }

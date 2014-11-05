@@ -86,9 +86,9 @@ function iup_templates_settings_page ( $filling ){
 				languages supported: en, it, de, fr, es, nl, pl <br>
 				buttons supported: subscribe, donate, buynow, cart, gift</td><td></td></tr>
 				<tr><td>currency</td><td>Currency, supports: "eur", "yen", "usd", "cad", "aud"</td><td></td></tr>
-				<tr><td>login-msg</td><td>The message displayed to anons</td><td></td></tr>
-				<tr><td>subscribed-msg</td><td>The message displayed to subscribed users</td><td>%until%</td></tr>
-				<tr><td>was-subscribed-msg</td><td>The message displayed to users with an expired subscription </td><td>%until%</td></tr>
+				<tr><td>login_msg</td><td>The message displayed to anons</td><td></td></tr>
+				<tr><td>subscribed_msg</td><td>The message displayed to subscribed users</td><td>%until%</td></tr>
+				<tr><td>was_subscribed_msg</td><td>The message displayed to users with an expired subscription </td><td>%until%</td></tr>
 			</table>
 			<h3>Placeholders</h3>
 			<p>Placeholders are allowed on certain parameters. They will be replaced with a specific variable.</p>

@@ -3,7 +3,7 @@ Contributors: Vesuvium, Ariacorporate
 Tags: PayPal, subscription, custom user meta
 Requires at least: 4.0
 Tested up to: 4.0
-Stable tag: 0.3
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,6 +62,10 @@ one item, so in case of a double subscription to different services, you will ge
 
 
 == Changelog ==
+
+= 0.3.1 =
+
+* Fixed shortcodes not working
 
 = 0.3 =
 
