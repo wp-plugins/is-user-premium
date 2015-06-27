@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
 * Templates for IUP.
 * $filling is the array that contains the arguments used
 * to fill the templates
@@ -21,7 +21,7 @@ function iup_templates_subscribe_form( $filling ){
 				<input type="hidden" value="'.$filling['currency'].'" name="currency_code">
 				<input type="hidden" value="1" name="upload">
 				<input type="hidden" value="utf-8" name="charset">
-				<input type="hidden" value="2" name="rm">  
+				<input type="hidden" value="2" name="rm">
 				<input type="hidden" value="'.$business.'" name="business">
 				<input type="hidden" value="'.$url.'/iup_ipn/paypal" name="notify_url">
 				<input type="hidden" value="'.$filling['user_id'].'&'.$filling['duration'].'" name="custom">
@@ -54,7 +54,7 @@ function iup_templates_settings_page ( $filling ){
 			<p>Some more examples:</p>
 			<b>[display_upgrade business="test@test.it" value="100" name="Standard subscription" currency="usd"
 			login-msg="Please login!"]</b><br>
-			<b>[display_upgrade business="test@test.it" value="100.00" name="Standard subscription" duration="86400" 
+			<b>[display_upgrade business="test@test.it" value="100.00" name="Standard subscription" duration="86400"
 			subscribed-msg="&lt;div&gt;&lt;h3&gt;Subscribed!&lt;/h3&gt;&lt;p&gt;Thank you very kindly!&lt;/p&gt;&lt;/div&gt;"]</b><br>
 			<h3>Styling</h3>
 			<p>The plugin does not add any style, therefore it will use your current styling. </p>
@@ -83,9 +83,9 @@ function iup_templates_settings_page ( $filling ){
 				<tr><td>name</td><td>The item name (will be displayed to the user)</td><td></td></tr>
 				<tr><td>duration</td><td>The subscription duration in seconds.</td><td></td></tr>
 				<tr><td>button</td><td>The paypal button image es: button="subscribe-en"; <br>
-				languages supported: en, it, de, fr, es, nl, pl <br>
+				languages supported: en, it, da, de, fr, es, nl, pl, pt, ru <br>
 				buttons supported: subscribe, donate, buynow, cart, gift</td><td></td></tr>
-				<tr><td>currency</td><td>Currency, supports: "eur", "yen", "usd", "cad", "aud"</td><td></td></tr>
+				<tr><td>currency</td><td>Currency, supports: "eur", "yen", "usd", "cad", "aud","gbp", "rub", "dkk"</td><td></td></tr>
 				<tr><td>login_msg</td><td>The message displayed to anons</td><td></td></tr>
 				<tr><td>subscribed_msg</td><td>The message displayed to subscribed users</td><td>%until%</td></tr>
 				<tr><td>was_subscribed_msg</td><td>The message displayed to users with an expired subscription </td><td>%until%</td></tr>
