@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Is user premium
- * Description: This simple plugin implements PayPal subscriptions in Wordpress, recording them as custom user meta. A shortcode can be used to display the subscription status to the users. 
- * Version: 0.3.1
+ * Description: This simple plugin implements PayPal subscriptions in Wordpress, recording them as custom user meta. A shortcode can be used to display the subscription status to the users.
+ * Version: 0.3.3
  * Author: Aria s.r.l.
  * Author URI: https://github.com/Ariacorporate
  * License: GPL2
@@ -21,12 +21,15 @@ function iup_button_select( $btn_string ){
 	// Returns a PayPal button, based on type and language.
 	// https://www.paypalobjects.com/$langs[$lang]/btn/$buttons[$btn_type]
 	$langs = array(
-		'it' => 'it_IT/IT/i/',
-		'fr' => 'fr_FR/FR/i/',
+		'it' => 'it_IT/IT/i',
+		'fr' => 'fr_FR/FR/i',
+		'da' => 'da_DK/DK/i',
 		'de' => 'de_DE/DE/i',
 		'es' => 'es_ES/ES/i',
 		'nl' => 'nl_NL/NL/i',
 		'pl' => 'pl_PL/PL/i',
+		'pt' => 'pt_PT/PT/i',
+		'ru' => 'ru_RU/RU/i',
 		'en' => 'en_US/i/'
 	);
 	$buttons = array(
@@ -43,9 +46,15 @@ function iup_button_select( $btn_string ){
 }
 
 function iup_currency ( $var ){
+	// Returns the currency code and relative symbol.
+	$var = strtolower( $var );
 	if ( $var == 'eur' ){
 		$currency = 'EUR';
 		$symbol = '&euro;';
+	}
+	else if ( $var == 'dkk' ){
+		$currency = 'DKK';
+		$symbol = 'kr';
 	}
 	else if ( $var == 'usd' ){
 		$currency = 'USD';
@@ -63,22 +72,30 @@ function iup_currency ( $var ){
 		$currency = 'CAD';
 		$symbol = '&#36;';
 	}
-	
+	else if ( $var == 'gbp' ){
+		$currency = 'GBP';
+		$symbol = '&#163;';
+	}
+	else if ( $var == 'rub' ){
+		$currency = 'RUB';
+		$symbol = '&#8381;';
+	}
+
 	return array(
 		"currency" => $currency,
 		"symbol" => $symbol
 	);
-} 
+}
 
-/* */ 
+/* */
 function iup_install() {
 	// Init function, run on activation/installation.
 	// Stores the name of the meta used by the plugin
-	add_option( 'iup_meta', 'iup_premium' ); 
+	add_option( 'iup_meta', 'iup_premium' );
 	$users = get_users();
 	foreach ( $users as $selected_user ){
-		add_user_meta( $selected_user->ID, 'iup_premium', 0 ); 
-	}    
+		add_user_meta( $selected_user->ID, 'iup_premium', 0 );
+	}
 }
 
 function iup_settings() {
@@ -89,7 +106,7 @@ function iup_settings() {
 
 function iup_admin_menu(){
 	add_options_page( 'IUP Settings', 'IUP settings', 'manage_options', 'iup-settings-page', 'iup_settings' );
-	
+
 }
 
 function iup_users_view($columns){
@@ -125,7 +142,7 @@ function iup_display_upgrade_shortcode( $args ){
 			'name' => '',
 			'duration' => 31556926,
 			'button' => 'subscribe-en',
-			'currency' => 'eur',
+			'currency' => 'EUR',
 			'login_msg' => '<p>You must be registered!</p>',
 			'subscribed_msg' => '<p>You are subscribed until %until%</p>',
 			'was_subscribed_msg' => '<p class="was-subscribed">You were subscribed until %until%</p>'
@@ -141,7 +158,7 @@ function iup_display_upgrade_shortcode( $args ){
 			$a['button'] = iup_button_select( $a['button'] );
 			$filling = iup_filling_generator( $a, $currency );
 			$filling = iup_filling_generator( $filling, array(
-				'url' => get_site_url(), 
+				'url' => get_site_url(),
 				'user_id' => $current_user->ID
 				)
 			);
@@ -207,7 +224,7 @@ function iup_ipn_process( $wp ){
 			return $data;
 		}
 	}
-	
+
 	$handler = new IPN_ext();
 	$ipn_check = $handler->process( $_POST );
 	if ( $ipn_check !== false ){
@@ -225,7 +242,7 @@ function iup_register_payment( $custom ){
 	$meta = get_user_meta( $user_id, $iup_meta, true );
 	$until = intval( $meta );
 	if ( $until == 0 || $until < time() ){
-		$t = time() + $duration; 
+		$t = time() + $duration;
 	}
 	else {
 		$t = intval( $meta ) + $duration;
@@ -237,7 +254,7 @@ function iup_register_payment( $custom ){
 function iup_update_registration_meta( $user_id ){
 	// Adds the meta to an user when it is created.
 	$iup_meta = get_option( 'iup_meta' );
-	add_user_meta( $user_id, $iup_meta, 0 ); 
+	add_user_meta( $user_id, $iup_meta, 0 );
 }
 
 function iup_edit_user_profile( $user ){
@@ -246,7 +263,7 @@ function iup_edit_user_profile( $user ){
 	$day = date( 'd', $meta );
 	$month = date( 'm', $meta );
 	$year = date( 'Y', $meta );
-	
+
 	// Wordpress default admin uses tables to display forms.
 	$html = '
 		<table class="form-table">
